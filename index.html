@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юрий & Анастасия | 06.09.2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Kosolapa Script';
+            src: url('KosolapaScript-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        :root {
+            --primary: #f8f3ee;
+            --secondary: #9FAD93;
+            --accent: #9FAD93;
+            --text: #5a4a42;
+            --dark: #3a2e28;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Kosolapa Script', cursive;
+            color: var(--text);
+            background-color: var(--primary);
+            overflow-x: hidden;
+            font-size: 2.16rem; /* Увеличен основной размер текста на 80% */
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Kosolapa Script', cursive;
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 6.66rem; /* Увеличен размер заголовков на 80% */
+        }
+        
+        .names {
+            font-family: 'Kosolapa Script', cursive;
+            color: white !important;
+        }
+        
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade {
+            animation: fadeIn 1.5s ease forwards;
+        }
+        
+        .animate-slide {
+            animation: slideUp 1.2s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.6s; }
+        .delay-3 { animation-delay: 0.9s; }
+        
+        /* Header */
+        header {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('photo_2025-05-19_20-28-01.jpg'); /* Добавлено фоновое изображение */
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .names {
+            font-size: 6vw;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            opacity: 0;
+        }
+        
+        .date {
+            font-size: 2vw;
+            letter-spacing: 5px;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            opacity: 0;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 4;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+        
+        /* Декоративные элементы */
+        .floral-divider {
+            width: 150px;
+            height: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin: 40px auto;
+            opacity: 0;
+        }
+        
+        /* Секции */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 6.66rem; /* Увеличен размер на 80% */
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            opacity: 0;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* История */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 2.34rem; /* Увеличен размер на 80% */
+            line-height: 1.8;
+            opacity: 0;
+        }
+        
+        /* Фото в истории */
+        .about-photos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .about-photo {
+            width: 300px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+        }
+        
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-photo:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Место проведения */
+        .location-container {
+            background: white;
+            padding: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            opacity: 0;
+        }
+        
+        .location-container:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid var(--accent);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        .location-title {
+            font-size: 4.86rem; /* Увеличен размер на 80% */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .location-address {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.52rem; /* Увеличен размер на 80% */
+        }
+        
+        .map-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Kosolapa Script', cursive;
+            font-size: 2.52rem; /* Увеличен размер на 80% */
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .map-button:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Программа дня */
+        .timeline {
+            position: relative;
+            padding: 50px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--accent);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 50px);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 50px);
+            text-align: left;
+        }
+        
+        .timeline-content {
+            padding: 30px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -60px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -60px;
+        }
+        
+        .timeline-time {
+            font-size: 3.06rem; /* Увеличен размер на 80% */
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .timeline-title {
+            font-size: 3.6rem; /* Увеличен размер на 80% */
+            margin-bottom: 15px;
+        }
+        
+        /* Дресс-код */
+        .dress-code {
+            background-color: var(--secondary);
+            text-align: center;
+        }
+        
+        .dress-code-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        
+        .dress-code-title {
+            font-size: 4.86rem; /* Увеличен размер на 80% */
+            margin-bottom: 30px;
+        }
+        
+        .dress-code-description {
+            font-size: 2.52rem; /* Увеличен размер на 80% */
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .color-item {
+            text-align: center;
+        }
+        
+        .color-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .color-circle:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-name {
+            font-family: 'Kosolapa Script', cursive;
+            font-size: 2.52rem; /* Увеличен размер на 80% */
+        }
+        
+        /* Цвета для дресс-кода */
+        .color-1 { background-color: #f4e2e0; } /* Нежно-розовый */
+        .color-2 { background-color: #f0e0c9; } /* Пудровый */
+        .color-3 { background-color: #FEFCCB; } /* Светло-бежевый (изменен на #FEFCCB) */
+        .color-4 { background-color: #3D723E; } /* Бежевый (изменен на #3D723E) */
+        .color-5 { background-color: #a0a398; } /* Серо-зеленый */
+        .color-6 { background-color: #676a5f; } /* Темный серо-зеленый */
+        
+        /* RSVP - Улучшенная форма */
+        .rsvp-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(156, 124, 91, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-family: 'Kosolapa Script', cursive;
+            font-size: 2.52rem; /* Увеличен размер на 80% */
+            color: var(--dark);
+        }
+        
+        .form-group .icon {
+            margin-right: 10px;
+            font-size: 2.34rem; /* Увеличен размер на 80% */
+            color: var(--accent);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Kosolapa Script', cursive;
+            font-size: 2.16rem; /* Увеличен размер на 80% */
+            background-color: rgba(255,255,255,0.95);
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(156, 124, 91, 0.2);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Стили для радио и чекбоксов */
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        
+        .radio-group label, .transport-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-family: 'Kosolapa Script', cursive;
+            font-size: 2.16rem; /* Увеличен размер на 80% */
+        }
+        
+        input[type="radio"], input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+        }
+        
+        .radio-custom, .checkbox-custom {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            margin-right: 10px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .checkbox-custom {
+            border-radius: 4px;
+        }
+        
+        input[type="radio"]:checked + .radio-custom::after,
+        input[type="checkbox"]:checked + .checkbox-custom::after {
+            content: '';
+            position: absolute;
+            display: block;
+        }
+        
+        input[type="radio"]:checked + .radio-custom::after {
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+        }
+        
+        input[type="checkbox"]:checked + .checkbox-custom::after {
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            top: 1px;
+            left: 1px;
+        }
+        
+        /* Стили для ошибок */
+        .error-message {
+            color: #e74c3c;
+            font-size: 1.89rem; /* Увеличен размер на 80% */
+            margin-top: 5px;
+            display: block;
+            opacity: 0;
+            height: 0;
+            transition: all 0.3s;
+        }
+        
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #e74c3c;
+        }
+        
+        .form-group.error .error-message {
+            opacity: 1;
+            height: auto;
+        }
+        
+        /* Кнопка отправки */
+        .submit-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 2.52rem; /* Увеличен размер на 80% */
+            font-family: 'Kosolapa Script', cursive;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto 0;
+            width: 100%;
+            max-width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn:hover {
+            background: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Модальное окно */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+        
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .close-modal:hover {
+            color: var(--accent);
+        }
+        
+        .modal-close-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Kosolapa Script', cursive;
+            transition: all 0.3s;
+        }
+        
+        .modal-close-btn:hover {
+            background: var(--dark);
+        }
+        
+        /* Дополнительные классы */
+        .hidden {
+            display: none !important;
+        }
+        
+        .guests-control {
+            display: flex;
+            gap: 10px;
+        }
+        
+        #custom-guests {
+            flex: 1;
+        }
+        
+        .form-actions {
+            text-align: center;
+        }
+        
+        .social-share {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .fb { background: #3b5998; }
+        .wa { background: #25D366; }
+        .tg { background: #0088cc; }
+        
+        .progress-bar {
+            height: 4px;
+            background: #f0f0f0;
+            margin-bottom: 30px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: var(--accent);
+            width: 0;
+            transition: width 0.3s;
+        }
+        
+        .form-note {
+            font-size: 1.98rem; /* Увеличен размер на 80% */
+            color: #666;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .save-note {
+            font-size: 1.8rem; /* Увеличен размер на 80% */
+            color: #999;
+            margin-top: 5px;
+        }
+        
+        /* Контакты организатора */
+        .organizer-contact {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 2.16rem; /* Увеличен размер на 80% */
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .names {
+                font-size: 12vw;
+            }
+            
+            .date {
+                font-size: 5vw;
+            }
+            
+            .section-title {
+                font-size: 4.86rem;
+            }
+            
+            .timeline::before {
+                left: 40px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding: 0 30px 0 80px;
+                text-align: left;
+            }
+            
+            .timeline-content::before {
+                left: -50px !important;
+            }
+            
+            .location-container {
+                padding: 30px;
+            }
+            
+            .about-photo {
+                width: 100%;
+                height: 500px;
+            }
+            
+            .color-circle {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .rsvp-form {
+                padding: 25px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px 15px;
+            }
+            
+            .submit-btn {
+                padding: 14px 30px;
+                font-size: 2.34rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hero-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="header-content">
+            <h1 class="names animate-slide">Юрий & Анастасия</h1>
+            <p class="date animate-slide delay-1">06.09.2025</p>
+        </div>
+        <div class="scroll-down">↓</div>
+    </header>
+    
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title animate-slide">Дорогие гости!</h2>
+            <div class="floral-divider animate-fade delay-1"></div>
+            
+            <div class="about-content animate-slide delay-1">
+                <p>С большой радостью приглашаем на наш первый семейный праздник – нашу свадьбу! Мы очень хотим, чтобы в этот день с нами рядом были самые близкие люди.</p>
+                <p>6 сентября 2025 года мы хотим официально стать семьей и приглашаем разделить с нами этот особенный день. Ваше присутствие сделает наш праздник еще более теплым и запоминающимся.</p>
+            </div>
+            
+            <div class="about-photos animate-slide delay-2">
+                <div class="about-photo">
+                    <img src="photo2.jpg" alt="Наше фото 1">
+                </div>
+                <div class="about-photo">
+                    <img src="photo3.jpg" alt="Наше фото 2">
+                </div>
+            </div>
+        </div> 
+    </section>
+    
+    <section class="location" style="background: var(--secondary);">
+        <div class="container">
+            <h2 class="section-title animate-slide">Место проведения</h2>
+            <div class="floral-divider animate-fade delay-1"></div>
+            <div class="location-container animate-slide delay-2">
+                <h3 class="location-title">BOTANIKA HALL</h3>
+                <p class="location-address">
+                    Зоопарк им. Р.А. Шило<br>
+                    Улица Жуковского, 100/5<br>
+                    3 этаж
+                </p>
+                <div style="text-align: center;">
+                    <a href="https://go.2gis.com/E4ls1" target="_blank" class="map-button">Схема проезда</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="program">
+        <div class="container">
+            <h2 class="section-title animate-slide">Программа дня</h2>
+            <div class="floral-divider animate-fade delay-1"></div>
+            
+            <div class="timeline">
+                <div class="timeline-item animate-slide delay-1">
+                    <div class="timeline-content">
+                        <div class="timeline-time">15:00</div>
+                        <h3 class="timeline-title">Церемония</h3>
+                        <p>Торжественная регистрация брака в банкетном зале BOTANIKA HALL. Начало нашего совместного пути.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-slide delay-2">
+                    <div class="timeline-content">
+                        <div class="timeline-time">16:30</div>
+                        <h3 class="timeline-title">Фотосессия</h3>
+                        <p>что-то.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-slide delay-3">
+                    <div class="timeline-content">
+                        <div class="timeline-time">18:00</div>
+                        <h3 class="timeline-title">Банкет</h3>
+                        <p>что-то еще.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="dress-code">
+        <div class="container">
+            <div class="dress-code-container animate-slide">
+                <h3 class="dress-code-title">Дресс-код</h3>
+                <div class="floral-divider animate-fade delay-1"></div>
+                <p class="dress-code-description">
+                    Для нас главное - ваше присутствие!
+Нам будет очень приятно, если вы поддержите цветовую гамму свадьбы. Но она лишь ориентир.
+                </p>
+                
+                <div class="color-palette">
+                    <div class="color-item animate-slide delay-1">
+                        <div class="color-circle color-1"></div>
+                        <p class="color-name">Нежно-розовый</p>
+                    </div>
+                    <div class="color-item animate-slide delay-2">
+                        <div class="color-circle color-2"></div>
+                        <p class="color-name">Пудровый</p>
+                    </div>
+                    <div class="color-item animate-slide delay-3">
+                        <div class="color-circle color-3"></div>
+                        <p class="color-name">Светло-бежевый</p>
+                    </div>
+                    <div class="color-item animate-slide delay-1">
+                        <div class="color-circle color-4"></div>
+                        <p class="color-name">Бежевый</p>
+                    </div>
+                    <div class="color-item animate-slide delay-2">
+                        <div class="color-circle color-5"></div>
+                        <p class="color-name">Серо-зеленый</p>
+                    </div>
+                    <div class="color-item animate-slide delay-3">
+                        <div class="color-circle color-6"></div>
+                        <p class="color-name">Темный серо-зеленый</p>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; font-style: italic; font-size: 2.34rem;">
+                    Джентельмены, выберите любой костюм, в котором будете чувствовать себя на все сто!
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="rsvp">
+        <div class="container">
+            <h2 class="section-title animate-slide">Подтвердите присутствие</h2>
+            <div class="floral-divider animate-fade delay-1"></div>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 2.34rem;">
+                Пожалуйста, подтвердите ваше присутствие на нашем празднике до 6 августа 2025 года
+            </p>
+            
+            <form class="rsvp-form animate-slide delay-2" id="weddingForm">
+                <div class="progress-bar animate-fade delay-1">
+                    <div class="progress"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">
+                        <i class="fas fa-user icon"></i> Ваше имя*
+                    </label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                    <span class="error-message" id="name-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact">
+                        <i class="fas fa-envelope icon"></i> Email или телефон*
+                    </label>
+                    <input type="text" id="contact" name="contact" required aria-required="true">
+                    <span class="error-message" id="contact-error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guests">
+                        <i class="fas fa-users icon"></i> Количество гостей*
+                    </label>
+                    <div class="guests-control">
+                        <select id="guests" name="guests" required aria-required="true">
+                            <option value="" disabled selected>Выберите количество</option>
+                            <option value="1">1 (только я)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="custom">Другое количество</option>
+                        </select>
+                        <input type="number" id="custom-guests" name="custom-guests" min="1" max="10" class="hidden">
+                    </div>
+                    <div id="guest-names-container" class="hidden">
+                        <!-- Динамически добавляемые поля для имен гостей -->
+                    </div>
+                </div>
+                
+                <div class="form-group attendance-group">
+                    <label>
+                        <i class="fas fa-calendar-check icon"></i> Вы сможете присутствовать?
+                    </label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="attendance" value="yes" checked> 
+                            <span class="radio-custom"></span>
+                            Да, с радостью!
+                        </label>
+                        <label>
+                            <input type="radio" name="attendance" value="no"> 
+                            <span class="radio-custom"></span>
+                            К сожалению, не смогу
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comments">
+                        <i class="fas fa-comment-dots icon"></i> Дополнительные пожелания
+                    </label>
+                    <textarea id="comments" name="comments" rows="6" 
+                              placeholder="Ваши пожелания по алкоголю, наличие аллергии или другие важные комментарии"></textarea>
+                </div>
+                
+                <div class="form-group transport-group hidden">
+                    <label>
+                        <input type="checkbox" id="need-transport" name="need-transport">
+                        <span class="checkbox-custom"></span>
+                        Мне нужен транспорт от места сбора
+                    </label>
+                </div>
+                
+                <div class="organizer-contact">
+                    <p>На все вопросы связанные с торжеством, с радостью ответит наш свадебный организатор</p>
+                    <p>Александра +7 (913) 209 62 64</p>
+                </div>
+                
+                <div class="form-note">
+                    <p>* Обязательные для заполнения поля</p>
+                    <p class="save-note">Ваши данные автоматически сохраняются</p>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Отправить</span> <!-- Изменено на "Отправить" -->
+                        <span class="loader hidden"></span>
+                    </button>
+                    <div class="social-share hidden">
+                        <span>Поделиться событием:</span>
+                        <a href="#" class="social-icon fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-icon tg" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Модальное окно успешной отправки -->
+            <div id="successModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="modal-icon">🎉</div>
+                    <h3>Спасибо за ваш ответ!</h3>
+                    <p>Мы получили ваше подтверждение и учтем все пожелания.</p>
+                    <p>Копия отправлена на ваш email.</p>
+                    <button class="modal-close-btn">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="animate-slide" style="text-align: center;">
+        <div class="container">
+            <p style="font-size: 3.06rem;">С любовью, Юрий и Анастасия</p>
+            <p style="font-size: 2.52rem;">06.09.2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+        // Инициализация анимаций при скролле
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Анимация появления элементов
+        gsap.utils.toArray('.animate-slide, .animate-fade').forEach(el => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                delay: el.classList.contains('delay-1') ? 0.3 : 
+                      (el.classList.contains('delay-2') ? 0.6 : 
+                      (el.classList.contains('delay-3') ? 0.9 : 0))
+            });
+        });
+        
+        // Анимация заголовка
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.to('.names', { opacity: 1, duration: 1.5, ease: "power2.out" });
+            gsap.to('.date', { opacity: 1, duration: 1.5, delay: 0.3, ease: "power2.out" });
+        });
+        
+        // Плавный скролл
+        document.querySelector('.scroll-down').addEventListener('click', () => {
+            window.scrollBy({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+
+        // Обработка улучшенной RSVP-формы
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('weddingForm');
+            const guestsSelect = document.getElementById('guests');
+            const customGuestsInput = document.getElementById('custom-guests');
+            const guestNamesContainer = document.getElementById('guest-names-container');
+            const transportGroup = document.querySelector('.transport-group');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const loader = submitBtn.querySelector('.loader');
+            const successModal = document.getElementById('successModal');
+            const attendanceRadios = document.querySelectorAll('input[name="attendance"]');
+            
+            // Инициализация данных из localStorage
+            loadFormData();
+            
+            // Обработчик изменения количества гостей
+            guestsSelect.addEventListener('change', function() {
+                if (this.value === 'custom') {
+                    customGuestsInput.classList.remove('hidden');
+                    customGuestsInput.focus();
+                } else {
+                    customGuestsInput.classList.add('hidden');
+                    updateGuestNamesFields(this.value);
+                }
+            });
+            
+            // Обработчик ручного ввода количества гостей
+            customGuestsInput.addEventListener('input', function() {
+                updateGuestNamesFields(this.value);
+            });
+            
+            // Обработчик изменения присутствия
+            attendanceRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'yes') {
+                        transportGroup.classList.remove('hidden');
+                    } else {
+                        transportGroup.classList.add('hidden');
+                        document.getElementById('need-transport').checked = false;
+                    }
+                });
+            });
+            
+            // Валидация в реальном времени
+            form.addEventListener('input', function(e) {
+                validateField(e.target);
+                updateProgressBar();
+                saveFormData();
+            });
+            
+            // Отправка формы
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (!validateForm()) {
+                    return;
+                }
+                
+                // Показать лоадер
+                btnText.textContent = 'Отправка...';
+                loader.classList.remove('hidden');
+                submitBtn.disabled = true;
+                
+                try {
+                    // Имитация отправки на сервер
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    
+                    // Показать модальное окно успеха
+                    successModal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Очистить localStorage
+                    localStorage.removeItem('weddingFormData');
+                    
+                    // Показать кнопки соцсетей
+                    document.querySelector('.social-share').classList.remove('hidden');
+                    
+                } catch (error) {
+                    alert('Произошла ошибка при отправке. Пожалуйста, попробуйте позже.');
+                } finally {
+                    btnText.textContent = 'Отправить';
+                    loader.classList.add('hidden');
+                    submitBtn.disabled = false;
+                }
+            });
+            
+            // Закрытие модального окна
+            successModal.querySelector('.close-modal').addEventListener('click', closeModal);
+            successModal.querySelector('.modal-close-btn').addEventListener('click', closeModal);
+            
+            function closeModal() {
+                successModal.classList.remove('show');
+                document.body.style.overflow = '';
+                form.reset();
+            }
+            
+            // Функции
+            function updateGuestNamesFields(guestCount) {
+                guestNamesContainer.innerHTML = '';
+                
+                const count = guestCount === 'custom' ? parseInt(customGuestsInput.value) || 1 : parseInt(guestCount) || 1;
+                
+                if (count > 1) {
+                    guestNamesContainer.classList.remove('hidden');
+                    
+                    for (let i = 2; i <= count; i++) {
+                        const div = document.createElement('div');
+                        div.className = 'form-group guest-name-field';
+                        div.innerHTML = `
+                            <label for="guest-${i}">
+                                <i class="fas fa-user icon"></i> Имя гостя #${i}
+                            </label>
+                            <input type="text" id="guest-${i}" name="guest-${i}">
+                        `;
+                        guestNamesContainer.appendChild(div);
+                    }
+                } else {
+                    guestNamesContainer.classList.add('hidden');
+                }
+            }
+            
+            function validateField(field) {
+                const group = field.closest('.form-group');
+                if (!group) return true;
+                
+                const errorElement = group.querySelector('.error-message');
+                
+                if (!field.required && field.id !== 'custom-guests') return true;
+                
+                let isValid = true;
+                let errorMessage = '';
+                
+                if (field.value.trim() === '' && field.required) {
+                    isValid = false;
+                    errorMessage = 'Это поле обязательно для заполнения';
+                } else if (field.id === 'contact') {
+                    if (!validateEmail(field.value) && !validatePhone(field.value)) {
+                        isValid = false;
+                        errorMessage = 'Введите корректный email или телефон';
+                    }
+                } else if (field.id === 'custom-guests' && field.value.trim() !== '') {
+                    const val = parseInt(field.value);
+                    if (isNaN(val) || val < 1 || val > 10) {
+                        isValid = false;
+                        errorMessage = 'Введите число от 1 до 10';
+                    }
+                }
+                
+                if (isValid) {
+                    group.classList.remove('error');
+                    if (errorElement) errorElement.textContent = '';
+                } else {
+                    group.classList.add('error');
+                    if (errorElement) errorElement.textContent = errorMessage;
+                }
+                
+                return isValid;
+            }
+            
+            function validateForm() {
+                let isValid = true;
+                const requiredFields = form.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    if (!validateField(field)) {
+                        isValid = false;
+                        // Прокрутка к первому ошибочному полю
+                        if (isValid === false && field.offsetParent) {
+                            field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            field.focus();
+                            isValid = true; // Чтобы сработало только для первого поля
+                        }
+                    }
+                });
+                
+                // Проверка кастомного количества гостей
+                if (guestsSelect.value === 'custom' && !validateField(customGuestsInput)) {
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+            
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+            
+            function validatePhone(phone) {
+                const re = /^[\d\+][\d\s\-\(\)]{7,}\d$/;
+                return re.test(phone);
+            }
+            
+            function saveFormData() {
+                const formData = {
+                    name: form.name.value,
+                    contact: form.contact.value,
+                    guests: form.guests.value,
+                    customGuests: customGuestsInput.value,
+                    attendance: document.querySelector('input[name="attendance"]:checked')?.value || 'yes',
+                    comments: form.comments.value,
+                    transport: document.getElementById('need-transport').checked,
+                    guestNames: []
+                };
+                
+                // Сохраняем имена гостей
+                document.querySelectorAll('.guest-name-field input').forEach(input => {
+                    formData.guestNames.push(input.value);
+                });
+                
+                localStorage.setItem('weddingFormData', JSON.stringify(formData));
+            }
+            
+            function loadFormData() {
+                const savedData = localStorage.getItem('weddingFormData');
+                if (!savedData) return;
+                
+                const formData = JSON.parse(savedData);
+                
+                form.name.value = formData.name || '';
+                form.contact.value = formData.contact || '';
+                form.guests.value = formData.guests || '';
+                customGuestsInput.value = formData.customGuests || '';
+                
+                if (formData.guests === 'custom') {
+                    customGuestsInput.classList.remove('hidden');
+                }
+                
+                if (formData.attendance) {
+                    document.querySelector(`input[name="attendance"][value="${formData.attendance}"]`).checked = true;
+                    if (formData.attendance === 'yes') {
+                        transportGroup.classList.remove('hidden');
+                    }
+                }
+                
+                form.comments.value = formData.comments || '';
+                document.getElementById('need-transport').checked = formData.transport || false;
+                
+                // Обновляем поля имен гостей если нужно
+                if (formData.guests && formData.guests !== 'custom') {
+                    updateGuestNamesFields(formData.guests);
+                } else if (formData.customGuests) {
+                    updateGuestNamesFields('custom');
+                }
+                
+                // Заполняем имена гостей
+                if (formData.guestNames && formData.guestNames.length > 0) {
+                    setTimeout(() => {
+                        document.querySelectorAll('.guest-name-field input').forEach((input, index) => {
+                            if (formData.guestNames[index]) {
+                                input.value = formData.guestNames[index];
+                            }
+                        });
+                    }, 100);
+                }
+            }
+            
+            function updateProgressBar() {
+                const requiredFields = form.querySelectorAll('[required]');
+                let filledCount = 0;
+                
+                requiredFields.forEach(field => {
+                    if (field.value.trim() !== '') {
+                        filledCount++;
+                    }
+                });
+                
+                // Проверяем кастомное количество гостей
+                if (guestsSelect.value === 'custom' && customGuestsInput.value.trim() !== '') {
+                    filledCount++;
+                }
+                
+                const progress = (filledCount / (requiredFields.length + (guestsSelect.value === 'custom' ? 1 : 0))) * 100;
+                const progressBar = document.querySelector('.progress');
+                
+                if (progressBar) {
+                    progressBar.style.width = `${progress}%`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
